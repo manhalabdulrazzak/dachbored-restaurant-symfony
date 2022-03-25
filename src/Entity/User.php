@@ -38,6 +38,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
     private $PlainPassword;
 
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,6 +151,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPlainPassword($PlainPassword): void
     {
         $this->PlainPassword = $PlainPassword;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 
 }

@@ -31,6 +31,21 @@ class Category
      */
     private $products;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $keywords;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $status;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -85,5 +100,41 @@ class Category
     public function __toString()
     {
        return $this->label;
+    }
+
+    public function getKeywords(): ?string
+    {
+        return $this->keywords;
+    }
+
+    public function setKeywords(string $keywords): self
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
     }
 }
